@@ -1,5 +1,6 @@
-shopping_list = []  
+# shopping_list_manager.py
 
+shopping_list = []  # global list
 def display_menu():
     print("\nShopping List Manager")
     print("1. Add Item")
@@ -10,20 +11,21 @@ def display_menu():
 def main():
     while True:
         display_menu()
-        
+
+        # Ensure menu choice is a number
         try:
-            choice = int(input("Enter your choice: "))
+            choice = int(input("Enter your choice (1-4): "))
         except ValueError:
-            print("Invalid input! Please enter a number.")
+            print("Invalid input! Please enter a number from 1 to 4.")
             continue
 
         if choice == 1:
-            item = input("Enter the item to add: ")
+            item = input("Enter item to add: ")
             shopping_list.append(item)
             print(f"'{item}' has been added to the list.")
 
         elif choice == 2:
-            item = input("Enter the item to remove: ")
+            item = input("Enter item to remove: ")
             if item in shopping_list:
                 shopping_list.remove(item)
                 print(f"'{item}' has been removed from the list.")
@@ -43,7 +45,7 @@ def main():
             break
 
         else:
-            print("Invalid choice. Please enter a number from 1 to 4.")
+            print("Invalid choice! Please enter a number from 1 to 4.")
 
 if __name__ == "__main__":
     main()
